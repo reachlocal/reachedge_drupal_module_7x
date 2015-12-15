@@ -1,0 +1,125 @@
+<?php
+
+/**
+ * @file
+ * Drupal Module: ReachLocal Tracking
+ *
+ * Adds the required Javascript to all your Drupal pages to allow tracking by
+ * the ReachLocal package.
+ *
+ * @author: Mark Wagner 
+ */
+ 
+ /**
+ * Define default path exclusion list to remove tracking from admin pages,
+ * see http://drupal.org/node/34970 for more information.
+ */
+define('REACHLOCAL_TRACKING_PAGES', "admin\nadmin/*\nbatch\nnode/add*\nnode/*/*\nuser/*/*");
+
+/**
+ * Implements hook_menu().
+ */
+function reachlocal_tracking_menu() {
+  $items['admin/config/system/reachlocal_tracking'] = array(
+    'title' => 'ReachLocal Tracking',
+    'description' => 'Configure tracking behavior to get insights into your website traffic and marketing effectiveness.',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('reachlocal_tracking_admin_settings_form'),
+    'access arguments' => array('administer reachlocal tracking'),
+    'type' => MENU_NORMAL_ITEM,
+    'file' => 'reachlocal_tracking.admin.inc',
+  );
+
+  return $items;
+}
+
+/**
+ * Implements hook_permission().
+ */
+function reachlocal_tracking_permission() {
+  return array(
+    'administer reachlocal tracking' => array(
+      'title' => t('Administer ReachLocal Tracking'),
+      'description' => t('Perform maintenance tasks for ReachLocal Tracking.'),
+    )
+  );
+}
+
+
+/**
+ * Implementation of hook_help().
+ */
+function reachlocal_tracking_help($path, $arg) {
+  switch ($path) {
+    case 'admin/settings/reachlocal_tracking':
+      return t('<a href="@reachlocal">ReachLocal</a> is a ..............', array('@reachlocal' => 'http://www.reachlocal.com'));
+  }
+}
+
+/**
+ * Implements hook_page_alter() to insert JavaScript to the appropriate scope/region of the page.
+ */
+function reachlocal_tracking_page_alter(&$page) {
+  //global $user;
+
+  $id = variable_get('reachlocal_tracking_id', '');
+
+  if (preg_match('/^[A-Z0-9]{8}(-[A-Z0-9]{4}){3}-[A-Z0-9]{12}$/i', $id) && _reachlocal_tracking_visibility_pages()) {
+
+    // Build tracker code.
+    $script = 'var rl_siteid = "';
+    $script .= $id;
+    $script .= '";';
+
+    drupal_add_js($script, array('scope' => 'header', 'type' => 'inline'));
+    drupal_add_js('//cdn.rlets.com/capture_static/mms/mms.js', array('scope' => 'header', 'type' => 'external'));
+    
+  }
+ 
+}
+
+/**
+ * Based on visibility setting this function returns TRUE if GA code should
+ * be added to the current page and otherwise FALSE.
+ */
+function _reachlocal_tracking_visibility_pages() {
+  static $page_match;
+
+  // Cache visibility result if function is called more than once.
+  if (!isset($page_match)) {
+
+    $visibility = variable_get('reachlocal_tracking_visibility_pages', 0);
+    $setting_pages = variable_get('reachlocal_tracking_pages', REACHLOCAL_TRACKING_PAGES);
+
+    // Match path if necessary.
+    if (!empty($setting_pages)) {
+      // Convert path to lowercase. This allows comparison of the same path
+      // with different case. Ex: /Page, /page, /PAGE.
+      $pages = drupal_strtolower($setting_pages);
+      if ($visibility < 2) {
+        // Convert the Drupal path to lowercase
+        $path = drupal_strtolower(drupal_get_path_alias($_GET['q']));
+        // Compare the lowercase internal and lowercase path alias (if any).
+        $page_match = drupal_match_path($path, $pages);
+        if ($path != $_GET['q']) {
+          $page_match = $page_match || drupal_match_path($_GET['q'], $pages);
+        }
+        // When $visibility has a value of 0, the tracking code is displayed on
+        // all pages except those listed in $pages. When set to 1, it
+        // is displayed only on those pages listed in $pages.
+        $page_match = !($visibility xor $page_match);
+      }
+      elseif (module_exists('php')) {
+        $page_match = php_eval($setting_pages);
+      }
+      else {
+        $page_match = FALSE;
+      }
+    }
+    else {
+      $page_match = TRUE;
+    }
+
+  }
+  return $page_match;
+}

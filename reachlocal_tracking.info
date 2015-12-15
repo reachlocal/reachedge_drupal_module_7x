@@ -1,0 +1,6 @@
+name = ReachLocal Tracking
+description = Adds the ReachLocal Javascript to your Drupal website
+core = 7.x
+
+; NEW LINE
+configure = admin/config/system/reachlocal_tracking

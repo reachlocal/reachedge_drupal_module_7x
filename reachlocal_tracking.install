@@ -1,0 +1,37 @@
+<?php
+
+/**
+ * @file
+ * Installation file for Google Analytics module.
+ */
+
+/**
+ * Implements hook_uninstall().
+ */
+function reachlocal_tracking_uninstall() {
+  variable_del('reachlocal_tracking_id');
+}
+
+
+/**
+ * Implements hook_requirements().
+ */
+function reachlocal_tracking_requirements($phase) {
+  $requirements = array();
+  $t = get_t();
+
+  if ($phase == 'runtime') {
+    // Raise warning if Google user account has not been set yet.
+    if (!preg_match('/^[A-Z0-9]{8}(-[A-Z0-9]{4}){3}-[A-Z0-9]{12}$/i', variable_get('reachlocal_tracking_id', 'XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX'))) {
+      $requirements['reachlocal_tracking_id'] = array(
+        'title' => $t('ReachLocal Tracking module'),
+        'description' => $t('ReachLocal Tracking module has not been configured yet. Please configure its settings from the <a href="@url">ReachLocal settings page</a>.', array('@url' => url('admin/config/system/reachlocal_tracking'))),
+        'severity' => REQUIREMENT_WARNING,
+        'value' => $t('Not configured'),
+      );
+    }
+  }
+
+  return $requirements;
+}
+
