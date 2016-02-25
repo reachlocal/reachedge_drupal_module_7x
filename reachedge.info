@@ -1,0 +1,6 @@
+name = ReachEdge
+description = ReachEdge offers lead & call tracking, lead notifications & nurturing, ROI reports, analytics & insights, and mobile app & alerts.
+core = 7.x
+
+; NEW LINE
+configure = admin/config/system/reachedge
