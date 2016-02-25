@@ -21,7 +21,7 @@ define('REACHLOCAL_TRACKING_PAGES', "admin\nadmin/*\nbatch\nnode/add*\nnode/*/*\
  */
 function reachedge_tracking_menu() {
   $items['admin/config/system/reachedge_tracking'] = array(
-    'title' => 'ReachLocal Tracking',
+    'title' => 'ReachEdge',
     'description' => 'Configure tracking behavior to get insights into your website traffic and marketing effectiveness.',
     'page callback' => 'drupal_get_form',
     'page arguments' => array('reachedge_tracking_admin_settings_form'),
@@ -39,8 +39,8 @@ function reachedge_tracking_menu() {
 function reachedge_tracking_permission() {
   return array(
     'administer reachedge tracking' => array(
-      'title' => t('Administer ReachLocal Tracking'),
-      'description' => t('Perform maintenance tasks for ReachLocal Tracking.'),
+      'title' => t('Administer ReachEdge'),
+      'description' => t('Perform maintenance tasks for ReachEdge.'),
     )
   );
 }

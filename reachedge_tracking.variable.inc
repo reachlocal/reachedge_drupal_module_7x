@@ -29,7 +29,7 @@ function reachedge_tracking_variable_info($options) {
  */
 function reachedge_tracking_variable_group_info() {
   $groups['googleanalytics'] = array(
-    'title' => t('ReachLocal Tracking'),
+    'title' => t('ReachEdge'),
     'description' => t('Configure tracking behavior to get insights into your website traffic and marketing effectiveness.'),
     'access' => 'administer reachedge tracking',
     'path' => array('admin/config/system/reachedge_tracking'),
@@ -43,6 +43,6 @@ function reachedge_tracking_variable_group_info() {
  */
 function reachedge_tracking_validate_reachedge_tracking_id($variable) {
   if (!preg_match('/^[A-Z0-9]{8}(-[A-Z0-9]{4}){3}-[A-Z0-9]{12}$/i', $variable['value'])) {
-    return t('A valid ReachLocal Site ID is formatted like XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX');
+    return t('A valid ReachEdge Site ID is formatted like XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX');
   }
 }

@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Administrative page callbacks for the reachedge tracking module.
+ * Administrative page callbacks for the ReachEdge tracking module.
  */
 
 /**
