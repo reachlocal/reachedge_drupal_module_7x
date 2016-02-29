@@ -22,7 +22,10 @@ function reachedge_admin_settings_form($form_state) {
     '#size' => 36,
     '#maxlength' => 36,
     '#required' => TRUE,
-    '#description' => t('This ID is unique to each account you would like to track and is in the form of XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX. To get a Site ID, <a href="@reachedge">sign up with ReachLocal</a>, or if you already have registered your site, go to your ReachLocal Settings.', array('@reachedge' => 'http://www.reachlocal.com')),
+    '#description' => t('This Site ID is unique to each site you want to track separately, and is in the form of XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX. <p>Need help finding your ReachEdge Site ID?</p> <ol><li>Sign into <a href="@reachedge_site">ReachEdge</a>.</li><li>Navigate to Settings tab, and click on \'Tracking Code\'.</li><li>Copy the Tracking Code ID out of your tracking code snippet. It should look something like: d4098273-6c87-4672-9f5e-94bcabf5597a <strong>Note:</strong> Do not use the example tracking code id as it will not work properly.</li></ol><p>If you have difficulty with this step or cannot find your Tracking ID, please contact your ReachLocal account representative.</p>',
+        array(
+          '@reachedge_site' => 'http://edge.reachlocal.com/',
+        )),
   );
 
   return system_settings_form($form);

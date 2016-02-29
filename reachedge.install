@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Installation file for Google Analytics module.
+ * Installation file for ReachEdge module.
  */
 
 /**
@@ -21,10 +21,10 @@ function reachedge_requirements($phase) {
   $t = get_t();
 
   if ($phase == 'runtime') {
-    // Raise warning if ReachEdge site id has not been set yet.
+    // Raise warning if ReachEdge Site ID has not been set yet.
     if (!preg_match('/^[A-Z0-9]{8}(-[A-Z0-9]{4}){3}-[A-Z0-9]{12}$/i', variable_get('reachedge_id', 'XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX'))) {
       $requirements['reachedge_id'] = array(
-        'title' => $t('ReachLocal Tracking module'),
+        'title' => $t('ReachEdge module'),
         'description' => $t('ReachEdge module has not been configured yet. Please configure its settings from the <a href="@url">ReachEdge settings page</a>.', array('@url' => url('admin/config/system/reachedge'))),
         'severity' => REQUIREMENT_WARNING,
         'value' => $t('Not configured'),

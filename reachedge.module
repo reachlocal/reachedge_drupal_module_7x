@@ -5,9 +5,9 @@
  * Drupal Module: ReachEdge.
  *
  * Adds the required Javascript to all your Drupal pages to allow tracking by
- * the ReachLocal package.
+ * the ReachEdge package.
  *
- * @author: REDrupalPlugin
+ * @author: ReachLocal <https://www.drupal.org/user/3405578>
  */
 
 /**
@@ -22,7 +22,7 @@ function reachedge_menu() {
 
   $items['admin/config/system/reachedge'] = array(
     'title' => 'ReachEdge',
-    'description' => 'Configure tracking behavior to get insights into your website traffic and marketing effectiveness.',
+    'description' => 'ReachEdge offers lead & call tracking, lead notifications & nurturing, ROI reports, analytics & insights, and mobile app & alerts.',
     'page callback' => 'drupal_get_form',
     'page arguments' => array('reachedge_admin_settings_form'),
     'access arguments' => array('administer reachedge tracking'),
@@ -61,7 +61,7 @@ function reachedge_help($path, $arg) {
 
   switch ($path) {
     case 'admin/help#reachedge':
-      return t('<a href="@reachedge">ReachLocal</a> is a ..............', array('@reachedge' => 'http://www.reachlocal.com'));
+      return t('<a href="@reachedge">ReachEdge</a> offers lead &amp; call tracking, lead notifications & nurturing, ROI reports, analytics &amp; insights, and mobile app &amp; alerts.', array('@reachedge' => 'http://www.reachlocal.com'));
   }
 }
 
@@ -134,4 +134,21 @@ function _reachedge_visibility_pages() {
 
   }
   return $page_match;
+}
+
+
+/**
+ * Delete cached files and directory.
+ */
+function reachedge_clear_js_cache() {
+  $path = 'public://reachedge';
+  if (file_prepare_directory($path)) {
+    file_scan_directory($path, '/.*/', array('callback' => 'file_unmanaged_delete'));
+    drupal_rmdir($path);
+
+    // Change query-strings on css/js files to enforce reload for all users.
+    _drupal_flush_css_js();
+
+    watchdog('reachedge', 'Local cache has been purged.', array(), WATCHDOG_INFO);
+  }
 }

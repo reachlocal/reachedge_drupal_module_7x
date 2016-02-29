@@ -14,11 +14,9 @@ function reachedge_variable_info($options) {
     'type' => 'string',
     'title' => t('Site ID', array(), $options),
     'default' => 'XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX',
-    'description' => t('This ID is unique to each site you want to track separately, and is in the form of UA-xxxxxxx-yy. To get a Web Property ID, <a href="@analytics">register your site with Google Analytics</a>, or if you already have registered your site, go to your Google Analytics Settings page to see the ID next to every site profile. <a href="@webpropertyid">Find more information in the documentation</a>.',
+    'description' => t('This Site ID is unique to each site you want to track separately, and is in the form of XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX. <p>Need help finding your ReachEdge Site ID?</p> <ol><li>Sign into <a href="@reachedge_site">ReachEdge</a>.</li><li>Navigate to Settings tab, and click on \'Tracking Code\'.</li><li>Copy the Tracking Code ID out of your tracking code snippet. It should look something like: d4098273-6c87-4672-9f5e-94bcabf5597a <strong>Note:</strong> Do not use the example tracking code id as it will not work properly.</li></ol><p>If you have difficulty with this step or cannot find your Tracking ID, please contact your ReachLocal account representative.</p>',
         array(
-          '@analytics' => 'http://www.google.com/analytics/',
-          '@webpropertyid' => url('https://developers.google.com/analytics/resources/concepts/gaConceptsAccounts',
-        array('fragment' => 'webProperty')),
+          '@reachedge_site' => 'http://edge.reachlocal.com/',
         ), $options),
     'required' => TRUE,
     'group' => 'reachedge',
@@ -35,9 +33,9 @@ function reachedge_variable_info($options) {
  */
 function reachedge_variable_group_info() {
 
-  $groups['googleanalytics'] = array(
+  $groups['reachedge'] = array(
     'title' => t('ReachEdge'),
-    'description' => t('Configure tracking behavior to get insights into your website traffic and marketing effectiveness.'),
+    'description' => t('ReachEdge offers lead &amp; call tracking, lead notifications &amp; nurturing, ROI reports, analytics & insights, and mobile app &amp; alerts.'),
     'access' => 'administer reachedge tracking',
     'path' => array('admin/config/system/reachedge'),
   );
@@ -46,7 +44,7 @@ function reachedge_variable_group_info() {
 }
 
 /**
- * Validate Web Property ID variable.
+ * Validate ReachEdge Site ID variable.
  */
 function reachedge_validate_reachedge_id($variable) {
 
