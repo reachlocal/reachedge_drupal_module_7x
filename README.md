@@ -7,8 +7,7 @@ A Drupal module to install the [ReachEdge](http://go.reachlocal.com/contact-us-e
 
 ## Installation
 
-1. Download the [latest stable
-   release](http://github.com/reachlocal/reachedge_drupal_module_7x/releases/latest).
+1. Download the [latest stable release](http://github.com/reachlocal/reachedge_drupal_module_7x/releases/latest).
 2. In the Drupal dashboard, navigate to the *Modules* page and click *Install new module*, then click *Choose File*.
 3. Browse to the 'reachedge_drupal_module_7x.zip' file, then select *Open* and click *Install Now*.
 4. When the upload and installation completes successfully, click on *Enable newly added modules*.
@@ -19,4 +18,3 @@ A Drupal module to install the [ReachEdge](http://go.reachlocal.com/contact-us-e
 1. In the Drupal dashboard, navigate to the *Configuration* menu.
 3. Click the *ReachEdge* link.
 2. Enter your tracking code ID into the ID field, and click the *Save Configuration* button.
-
