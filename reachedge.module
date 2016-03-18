@@ -110,11 +110,11 @@ function _reachedge_visibility_pages() {
       $pages = drupal_strtolower($setting_pages);
       if ($visibility < 2) {
         // Convert the Drupal path to lowercase.
-        $path = drupal_strtolower(drupal_get_path_alias($_GET['q']));
+        $path = drupal_strtolower(drupal_get_path_alias(check_plain($_GET['q'])));
         // Compare the lowercase internal and lowercase path alias (if any).
         $page_match = drupal_match_path($path, $pages);
-        if ($path != $_GET['q']) {
-          $page_match = $page_match || drupal_match_path($_GET['q'], $pages);
+        if ($path != check_plain($_GET['q'])) {
+          $page_match = $page_match || drupal_match_path(check_plain($_GET['q']), $pages);
         }
         // When $visibility has a value of 0, the tracking code is displayed on
         // all pages except those listed in $pages. When set to 1, it
