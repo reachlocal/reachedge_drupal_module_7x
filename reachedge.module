@@ -121,9 +121,6 @@ function _reachedge_visibility_pages() {
         // is displayed only on those pages listed in $pages.
         $page_match = !($visibility xor $page_match);
       }
-      elseif (module_exists('php')) {
-        $page_match = php_eval($setting_pages);
-      }
       else {
         $page_match = FALSE;
       }
