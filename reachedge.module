@@ -7,7 +7,6 @@
  * Adds the required Javascript to all your Drupal pages to allow tracking by
  * the ReachEdge package.
  *
- * @author: ReachLocal <https://www.drupal.org/user/3405578>
  */
 
 /**

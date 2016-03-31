@@ -4,8 +4,22 @@ Author: ReachLocal <https://www.drupal.org/user/3405578>
 
 Description
 ===========
+[ReachEdge](http://go.reachlocal.com/contact-us-edge.html),
+[ReachLocal’s](http://www.reachlocal.com) lead conversion software, lets you
+manage leads and turn them into customers. The lead tracking technology in
+[ReachEdge](http://go.reachlocal.com/contact-us-edge.html) measures how each
+of your marketing sources - like search advertising, social media, and SEO -
+is working. Plus, it records every phone call that comes from your website so
+you know exactly how they found and listen to and respond to inquiries.
+
+With [ReachEdge](http://go.reachlocal.com/contact-us-edge.html), you also get
+access to an online dashboard and mobile application that provides you
+visibility into your inbound leads and tools to follow up with these leads
+- such as by editing the lead status and assigning the leads to other people
+in your company so you an follow up with them.
+
 For [ReachEdge](http://go.reachlocal.com/contact-us-edge.html) customers
-[ReachEdge](http://go.reachlocal.com/contact-us-edge.html) provides a simple
+[ReachEdge](http://go.reachlocal.com/contact-us-edge.html) provide a simple
 Drupal module that enables you to capture leads, understand your sources of
 leads, and provides tools to help you respond to and manage those leads.
 
@@ -17,21 +31,6 @@ pages of the Drupal website.   The software is loaded from a CDN and is under
 continuous development to provide the best performance and stability across all
 browser and OS combinations.  As new features and functionality are added to
 ReachEdge, those updates will be rolled out without any updates of this module.
-
-About ReachEdge
-[ReachEdge](http://go.reachlocal.com/contact-us-edge.html),
-[ReachLocal](http://www.reachlocal.com)’s lead conversion software, lets you
-manage leads and turn them into customers. The lead tracking technology in
-[ReachEdge](http://go.reachlocal.com/contact-us-edge.html) measures how each
-of your marketing sources - like search advertising, social media, and SEO -
-is working. Plus, it records every phone call that comes from your website so
-you know exactly how they found and listen to and respond to inquiries.
-
-With [ReachEdge](http://go.reachlocal.com/contact-us-edge.html), you also get
-access to an online dashboard and mobile application that provide you visibility
-into your inbound leads and tools to follow up with these leads - such as by
-editing the lead status and assigning the leads to other people in your
-company so you an follow up with them.
 
 
 Requirements
