@@ -6,7 +6,6 @@
  *
  * Adds the required Javascript to all your Drupal pages to allow tracking by
  * the ReachEdge package.
- *
  */
 
 /**
