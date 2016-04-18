@@ -1,58 +1,47 @@
 Module: ReachEdge
 Author: ReachLocal <https://www.drupal.org/user/3405578>
 
+Synopsis
+========
+The ReachEdge Drupal module adds the tracking software on all
+the pages of your website. ReachEdge software tracks phone calls,
+visits, sessions and leads, captures email and form submissions.
 
-Description
-===========
-[ReachEdge](http://go.reachlocal.com/contact-us-edge.html),
-[ReachLocal’s](http://www.reachlocal.com) lead conversion software, lets you
-manage leads and turn them into customers. The lead tracking technology in
-[ReachEdge](http://go.reachlocal.com/contact-us-edge.html) measures how each
-of your marketing sources - like search advertising, social media, and SEO -
-is working. Plus, it records every phone call that comes from your website so
-you know exactly how they found and listen to and respond to inquiries.
-
-With [ReachEdge](http://go.reachlocal.com/contact-us-edge.html), you also get
-access to an online dashboard and mobile application that provides you
-visibility into your inbound leads and tools to follow up with these leads
-- such as by editing the lead status and assigning the leads to other people
-in your company so you an follow up with them.
-
-For [ReachEdge](http://go.reachlocal.com/contact-us-edge.html) customers
-[ReachEdge](http://go.reachlocal.com/contact-us-edge.html) provide a simple
-Drupal module that enables you to capture leads, understand your sources of
-leads, and provides tools to help you respond to and manage those leads.
-
-The [ReachLocal](http://www.reachlocal.com)
-[ReachEdge](http://go.reachlocal.com/contact-us-edge.html) Drupal module adds
-the tracking code to the Drupal site. This module adds the
-[ReachEdge](http://go.reachlocal.com/contact-us-edge.html) software on all
-pages of the Drupal website.   The software is loaded from a CDN and is under
-continuous development to provide the best performance and stability across all
-browser and OS combinations.  As new features and functionality are added to
-ReachEdge, those updates will be rolled out without any updates of this module.
-
+ReachEdge gives access to an online dashboard and mobile application
+that provide you visibility into your inbound leads and tools to follow
+up with these leads.
 
 Requirements
 ============
+ReachEdge Site ID
 
-* ReachEdge Site ID
+ReachEdge Site ID is only available for those clients who are subscribed
+to ReachEdge.
 
+To find your ReachEdge Site ID refer to the following steps:
 
-Installation
-============
-* Copy the 'reachedge' module directory in to your Drupal
-sites/all/modules directory as usual.
+Sign into ReachEdge.
+Navigate to Settings tab, and click on 'Tracking Code'.
+From Option 2, copy the Tracking ID. It should look something
+like: d4098273-6c87-4672-9f5e-94bcabf5597a
+Note: Do not use the example tracking code id as it will not work properly.
+If you have difficulty with this step or cannot find your Tracking ID,
+please contact your ReachLocal account representative.
 
+Roadmap
+=========
+The javascript is loaded from a CDN and is under continuous development to
+provide the best performance and stability across all browser and OS
+combinations. As new features and functionality are added to ReachEdge,
+those updates will be rolled out without any need to update this plugin.
 
-Usage
-=====
-In the settings page enter your ReachEdge Site ID.
+Possible future updates include:
 
-All pages will now have the required JavaScript added to the
-HTML header can confirm this by viewing the page source from
-your browser.
+Option to cache the javascript loaded from the cdn daily
+An interface into reporting
 
+Excluded Pages
+==============
 By default the following pages are excluded from loading ReachEdge:
 
 admin
@@ -62,8 +51,14 @@ node/add*
 node/*/*
 user/*/*
 
+Known problems
+==============
+None at this time
 
-Known issues
-============
+Credits
+========
+This Project is maintained by ReachLocal's software engineers.
 
+Dependencies
+=============
 None
