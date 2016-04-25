@@ -35,7 +35,7 @@ function reachedge_variable_group_info() {
 
   $groups['reachedge'] = array(
     'title' => t('ReachEdge'),
-    'description' => t('ReachEdge offers lead &amp; call tracking, lead notifications &amp; nurturing, ROI reports, analytics & insights, and mobile app &amp; alerts.'),
+    'description' => t('Configure tracking to get insights into your website traffic and marketing effectiveness.'),
     'access' => 'administer reachedge',
     'path' => array('admin/config/system/reachedge'),
   );

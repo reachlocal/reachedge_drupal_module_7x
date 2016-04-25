@@ -20,7 +20,7 @@ function reachedge_menu() {
 
   $items['admin/config/system/reachedge'] = array(
     'title' => 'ReachEdge',
-    'description' => 'ReachEdge offers lead & call tracking, lead notifications & nurturing, ROI reports, analytics & insights, and mobile app & alerts.',
+    'description' => 'Configure tracking to get insights into your website traffic and marketing effectiveness.',
     'page callback' => 'drupal_get_form',
     'page arguments' => array('reachedge_admin_settings_form'),
     'access arguments' => array('administer reachedge'),
